@@ -16,7 +16,7 @@
 
 <body>
     <section class="container mt-5">
-        <!-- <div class="card p-4" x-data="{
+        <div class="card p-4" x-data="{
                     query: '',
                     img: '',
                     
@@ -42,14 +42,14 @@
             <div class="card-body">
                 <div class="text-center">
                     <div x-show="img">
-                        <img x-show="img" :src="img" alt="Unsplash Image" class="img-fluid rounded mb-3">
+                        <img x-show="img" :src="img" alt="Unsplash Image" class="img-fluid rounded mb-3 w-25">
                     </div>
                     <p x-show="!img" class="text-danger">Please enter a search term and click Search.</p>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-        <div class="card p-4" x-data="{
+        <!-- <div class="card p-4" x-data="{
                     query: '',
                     images: [],
                     page: 1,
@@ -92,7 +92,7 @@
                 <p x-show="images.length === 0" class="text-danger text-center">Please enter a search term and click
                     Search.</p>
             </div>
-        </div>
+        </div> -->
 
     </section>
 
