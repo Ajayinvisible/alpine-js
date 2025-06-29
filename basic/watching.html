@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Alpine JS Basic</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Correctly deferred marked.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <section class="container mt-5">
+        <div class="card p-4">
+            <div x-data="{ message: 'Hello World!!',
+                init(){
+                    this.$watch('message', (value) => { 
+                        console.log('Changed message to: ', value);
+                    })
+                }
+            }">
+                <div x-text="message" class="mb-3"></div>
+                <button x-on:click="message = 'Message Change' " class="btn btn-success">Change Text</button>
+            </div>
+            <hr>
+            <div x-data="{ 
+                query: '',
+                
+                results: [],
+
+                performSearch() {
+                    this.results = ['apple','banana','cherry']
+                },
+
+                init() {
+                    this.$watch('query', (query) => {
+                        this.performSearch(query);
+                    })
+                }
+            }">
+            <span x-text="results"></span>
+                <input x-model="query" x-on:keyup="performSearch" type="text">
+            </div>
+        </div>
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
